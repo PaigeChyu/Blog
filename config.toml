@@ -1,0 +1,41 @@
+theme = "maupassant-hugo"
+baseURL = "http://example.org/"
+#languageCode = "en-us"
+languageCode = "zh-CN"
+title = "Paige's Hugo"
+
+ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
+
+[author]
+  name = "Paige Chyu"
+
+[params]
+  author = "Paige Chyu"
+  subtitle = "Still Waters Run Deep"
+  keywords = "R, ENVI, Moive, Novel"
+  description = "或读、或写,却静，却思"
+  
+[menu]
+
+  #[[menu.main]]
+  #  identifier = "books"
+  #  name = "新书"
+  #  url = "/books/"
+  #  weight = 2
+
+  [[menu.main]]
+    identifier = "archives"
+    name = "归档"
+    url = "/archives/"
+    weight = 3
+
+  #[[menu.main]]
+  # identifier = "about"
+  #  name = "关于"
+  #  url = "/about/"
+  #  weight = 4
+    
+  toc = true
+  
+  # 默认是70
+ summaryLength = 20
