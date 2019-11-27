@@ -1,5 +1,5 @@
 theme = "maupassant-hugo"
-baseURL = "http://example.org/"
+baseURL = "https://paigechyu.netlify.com/"
 #languageCode = "en-us"
 languageCode = "zh-CN"
 title = "Paige's Hugo"
@@ -39,3 +39,5 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
   
   # 默认是70
  summaryLength = 20
+
+
