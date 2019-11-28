@@ -6,10 +6,22 @@
     <description>Recent content on Paige&#39;s Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 24 Nov 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 28 Nov 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>哈尔滨1910</title>
+      <link>/post/harbin1910/</link>
+      <pubDate>Thu, 28 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/harbin1910/</guid>
+      <description>
+
+
+&lt;p&gt;京东PLUS会员续费送了一个知乎读书会的会员，随便翻翻，看到有个“知乎一小时”的系列，刚好是最近的“鼠疫”话题，就顺便看看。感觉这个1小时很值，简单地说：内容详实，笔法生动，内容震撼，发人深思。前8个字给书的作者眠眠，接着四个字属于伍博士，最后四个字给自己也给我们每个人</description>
+    </item>
     
     <item>
       <title>轻质乳酪蛋糕</title>
@@ -32,7 +44,7 @@
       <description>
 
 
-&lt;p&gt;  今天看了一本小说《82年生的金智英》，据说同名的电影的也反响不错。说实话看完以后感觉百味陈杂，陌生又熟悉的感觉。</description>
+&lt;p&gt;今天看了一本小说《82年生的金智英》，据说同名的电影的也反响不错。说实话看完以后感觉百味陈杂，陌生又熟悉的感觉。</description>
     </item>
     
     <item>
@@ -41,9 +53,10 @@
       <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
       
       <guid>/post/2015-07-23-r-rmarkdown/</guid>
-      <description>R MarkdownThis is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
-You can embed an R code chunk like this:
-summary(cars)## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu.</description>
+      <description>
+
+
+&lt;p&gt;This is an R Markdown document. </description>
     </item>
     
     <item>
