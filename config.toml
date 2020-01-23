@@ -1,7 +1,7 @@
 theme = "maupassant-hugo"
 baseURL = "https://paigechyu.netlify.com/"
-#languageCode = "en-us"
-languageCode = "zh-CN"
+languageCode = "en-us"
+#languageCode = "zh-CN"
 title = "Paige's Hugo"
 
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
