@@ -11,7 +11,17 @@ knitr::opts_chunk$set(collapse = TRUE)
 ```
 
 This is an R Markdown document. <!--more--> 
+先来出个题 $$92-29=9 \times (9-2) = 7 \times 9=63$$
+           $$83-38=9 \times (8-3) = 9 \times 5=45$$
+而且我可以告诉你，这个规律普遍成立。想想是为什么呢？是不是很烧脑。我可以这么理解：一个两位数减去十位和个位对调的另外一个两位数，是一个两位数减去一个十位是该数个位的整十数，答案就是原来10位数和个位数差值的10培。
 
+但是如果我告诉你这个规律就是：
+$$mn-nm=10m+n-(10n+m)\\
+=10m+n-10n-m\\
+=10(m-n)-(m-n)\\
+=9(m-n)$$
+
+是不是感觉特别简单，特别显而易见。这就是工具的作用。我认为工具的作为可以分为两个层面。第一个层面就是让眼前的问题变简单（节省当前的时间和经历），而第二层面则是插上向前的翅膀，看得更远更大，走的更远更深。
 # R Markdown
 
 Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
