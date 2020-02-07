@@ -1,0 +1,83 @@
+---
+title: R-read-write-data
+author: PC
+date: '2021-02-26'
+slug: []
+categories:
+  - R
+tags:
+  - R Markdown
+---
+
+
+
+<p>数据的读写是使用R的第一步 <!--more--></p>
+<div id="excel-数据的读写" class="section level2">
+<h2>EXCEL 数据的读写</h2>
+<p>一般数据量不是很大的时候，EXCEL还是最方便的，因为兼容性最好，使用普遍，利用同事间的分享与交流。
+EXCEL 数据可以使用xlsx 包解决</p>
+<pre><code>install.package(&quot;xlsx&quot;)
+library(xlsx)</code></pre>
+<p>将Rmarkdown file 和数据存储在同一文件夹中，可以建立DATA_IN, DATA_OUT子文件夹，读写数据会比较方便</p>
+<pre><code>read.xlsx(file, 
+          sheetIndex, 
+          sheetName=NULL,
+          rowIndex=NULL,
+          startRow=NULL, 
+          endRow=NULL, 
+          colIndex=NULL,
+          as.data.frame=TRUE, 
+          header=TRUE, 
+          colClasses=NA,
+          keepFormulas=FALSE, 
+          encoding=&quot;unknown&quot;, ...)</code></pre>
+<p><strong>file</strong>：Excel文件的路径</p>
+<p><strong>sheetIndex</strong> ：一个表示工作薄中的表的索引的数值</p>
+<p><strong>sheetName</strong>：表名</p>
+<p><strong>rowIndex</strong>：一个数值向量，表示想提取的行。如为空，且未指定startRow和endRow，则提取所有行。</p>
+<p><strong>colIndex</strong> ：一个数值向量，表示想提取的列。如为空，则提取所有的列。
+<strong>as.data.frame</strong>：布尔值，是否强制转换为data.frame。如FALSE，则用列表表示，每个元素为一列。</p>
+<p><strong>header</strong>：布尔值，是否将第一行识别为标题</p>
+<p><strong>colClasses</strong>：For read.xlsx a character vector that represent the class of each column. Recycled as necessary, or if the character vector is named, unspecified values are taken to be NA. For read.xlsx2 see readColumns.</p>
+<p><strong>keepFormulas</strong>：布尔值，是否以文本格式保留Excel公式</p>
+<p><strong>encoding</strong>：encoding to be assumed for input strings. See <code>read.table</code>.</p>
+<p><strong>startRow</strong>：数值，读取的起点行。对于<code>read.xlsx</code>，仅当参数rowIndex为NULL时有效。</p>
+<p><strong>endRow</strong> ：数值，读取的终点行。如设为<code>NULL</code>，则读取所有行。对于<code>read.xlsx</code>，仅当参数<code>rowIndex</code>为<code>NULL</code>时有效。</p>
+<pre><code>write.xlsx(x, 
+           file, 
+           sheetName=&quot;Sheet1&quot;, 
+           col.names=TRUE, 
+           row.names=TRUE, 
+           append=FALSE, 
+           showNA=TRUE)</code></pre>
+<p><strong>x</strong> 要写入的数据，data.frame 格式</p>
+<p><strong>file</strong>：Excel文件的路径</p>
+<p><strong>sheetName</strong>表名</p>
+<p><strong>append</strong> <code>TRUE</code>表示新建 sheet 写入数据， <code>FLASE</code>覆盖现有sheet</p>
+<p>一般只用到最简单的形式</p>
+<pre><code>read.xlsx(&quot;./TDATA_IN/test.xls&quot;)
+#&quot;./&quot;：代表目前所在的目录。
+#&quot;../&quot;：代表上一层目录。
+#以&quot;/&quot;开头：代表根目录。
+write.xlsx(x, &quot;./DATA_OUT/test.xls&quot;) #写入第一个表
+write.xlsx(x1, &quot;./DATA_OUT/test.xls&quot;, sheetName=&quot;Sheet2&quot;,append=&quot;TURE&quot;) #写入第二个表</code></pre>
+</div>
+<div id="文本数据的读写" class="section level2">
+<h2>文本数据的读写</h2>
+<p>对于“海量”的数据还是.dat 格式比较高效，对于.dat 的读写不需要其他的包，r 基本库自带的函数就很好用了，帮助也很便捷。</p>
+<pre><code>read.table(file, header = FALSE, sep = &quot;&quot;, quote = &quot;\&quot;&#39;&quot;,
+           dec = &quot;.&quot;, numerals = c(&quot;allow.loss&quot;, &quot;warn.loss&quot;, &quot;no.loss&quot;),
+           row.names, col.names, as.is = !stringsAsFactors,
+           na.strings = &quot;NA&quot;, colClasses = NA, nrows = -1,
+           skip = 0, check.names = TRUE, fill = !blank.lines.skip,
+           strip.white = FALSE, blank.lines.skip = TRUE,
+           comment.char = &quot;#&quot;,
+           allowEscapes = FALSE, flush = FALSE,
+           stringsAsFactors = default.stringsAsFactors(),
+           fileEncoding = &quot;&quot;, encoding = &quot;unknown&quot;, text, skipNul = FALSE)
+write.table(x, file = &quot;&quot;, append = FALSE, quote = TRUE, sep = &quot; &quot;,
+            eol = &quot;\n&quot;, na = &quot;NA&quot;, dec = &quot;.&quot;, row.names = TRUE,
+            col.names = TRUE, qmethod = c(&quot;escape&quot;, &quot;double&quot;),
+            fileEncoding = &quot;&quot;)</code></pre>
+<p>You can embed an R code chunk like this:</p>
+</div>

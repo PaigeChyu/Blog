@@ -1,0 +1,115 @@
+---
+title: R-read-write-data
+author: PC
+date: '2021-02-26'
+slug: []
+categories:
+  - R
+tags:
+  - R Markdown
+---
+
+
+
+数据的读写是使用R的第一步 <!--more-->
+
+
+## EXCEL 数据的读写
+
+一般数据量不是很大的时候，EXCEL还是最方便的，因为兼容性最好，使用普遍，利用同事间的分享与交流。
+EXCEL 数据可以使用xlsx 包解决
+
+```
+install.package("xlsx")
+library(xlsx)
+```
+
+将Rmarkdown file 和数据存储在同一文件夹中，可以建立DATA_IN, DATA_OUT子文件夹，读写数据会比较方便
+
+```
+read.xlsx(file, 
+          sheetIndex, 
+          sheetName=NULL,
+          rowIndex=NULL,
+          startRow=NULL, 
+          endRow=NULL, 
+          colIndex=NULL,
+          as.data.frame=TRUE, 
+          header=TRUE, 
+          colClasses=NA,
+          keepFormulas=FALSE, 
+          encoding="unknown", ...)
+```
+
+**file**：Excel文件的路径
+
+**sheetIndex** ：一个表示工作薄中的表的索引的数值
+
+**sheetName**：表名
+
+**rowIndex**：一个数值向量，表示想提取的行。如为空，且未指定startRow和endRow，则提取所有行。
+
+**colIndex** ：一个数值向量，表示想提取的列。如为空，则提取所有的列。
+**as.data.frame**：布尔值，是否强制转换为data.frame。如FALSE，则用列表表示，每个元素为一列。
+
+**header**：布尔值，是否将第一行识别为标题
+
+**colClasses**：For read.xlsx a character vector that represent the class of each column. Recycled as necessary, or if the character vector is named, unspecified values are taken to be NA. For read.xlsx2 see readColumns.
+
+**keepFormulas**：布尔值，是否以文本格式保留Excel公式
+
+**encoding**：encoding to be assumed for input strings. See `read.table`.
+
+**startRow**：数值，读取的起点行。对于`read.xlsx`，仅当参数rowIndex为NULL时有效。
+
+**endRow** ：数值，读取的终点行。如设为`NULL`，则读取所有行。对于`read.xlsx`，仅当参数`rowIndex`为`NULL`时有效。
+
+```
+write.xlsx(x, 
+           file, 
+           sheetName="Sheet1", 
+           col.names=TRUE, 
+           row.names=TRUE, 
+           append=FALSE, 
+           showNA=TRUE)
+```
+**x** 要写入的数据，data.frame 格式
+
+**file**：Excel文件的路径
+
+**sheetName**表名
+
+**append** `TRUE`表示新建 sheet 写入数据， `FLASE`覆盖现有sheet
+
+一般只用到最简单的形式
+
+```
+read.xlsx("./TDATA_IN/test.xls")
+#"./"：代表目前所在的目录。
+#"../"：代表上一层目录。
+#以"/"开头：代表根目录。
+write.xlsx(x, "./DATA_OUT/test.xls") #写入第一个表
+write.xlsx(x1, "./DATA_OUT/test.xls", sheetName="Sheet2",append="TURE") #写入第二个表
+```
+## 文本数据的读写
+
+对于“海量”的数据还是.dat 格式比较高效，对于.dat 的读写不需要其他的包，r 基本库自带的函数就很好用了，帮助也很便捷。
+
+```
+read.table(file, header = FALSE, sep = "", quote = "\"'",
+           dec = ".", numerals = c("allow.loss", "warn.loss", "no.loss"),
+           row.names, col.names, as.is = !stringsAsFactors,
+           na.strings = "NA", colClasses = NA, nrows = -1,
+           skip = 0, check.names = TRUE, fill = !blank.lines.skip,
+           strip.white = FALSE, blank.lines.skip = TRUE,
+           comment.char = "#",
+           allowEscapes = FALSE, flush = FALSE,
+           stringsAsFactors = default.stringsAsFactors(),
+           fileEncoding = "", encoding = "unknown", text, skipNul = FALSE)
+write.table(x, file = "", append = FALSE, quote = TRUE, sep = " ",
+            eol = "\n", na = "NA", dec = ".", row.names = TRUE,
+            col.names = TRUE, qmethod = c("escape", "double"),
+            fileEncoding = "")
+```
+
+You can embed an R code chunk like this:
