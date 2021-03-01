@@ -1,0 +1,57 @@
+---
+title: 'R_Colours '
+author: PC
+date: '2021-03-01'
+slug: []
+categories:
+  - R
+tags:
+  - R Markdown
+---
+
+<script src="{{< blogdown/postref >}}index_files/header-attrs/header-attrs.js"></script>
+
+
+<p>配色在绘图中是比较高阶的内容，合理美观的搭配，不仅可以提高图的可读性、突出重要信息的特点，而且可以让人耳目一新。<!--more--></p>
+<div id="rcolorbrewer-包" class="section level2">
+<h2>RColorBrewer 包</h2>
+<p>调色板有3种类型：连续型调色板、离散型调色板和定性调色板。</p>
+<p><strong>连续型调色板</strong>，适用于从低到高（渐变）的有序数据。
+Blues, BuGn, BuPu, GnBu, Greens, Greys, Oranges, OrRd, PuBu, PuBuGn, PuRd, Purples, RdPu, Reds, YlGn, YlGnBu YlOrBr, YlOrRd</p>
+<p><strong>离散型调色板</strong>，同时强调中端临界值和数据范围两端的极端值。</p>
+<p>BrBG, PiYG, PRGn, PuOr, RdBu, RdGy, RdYlBu, RdYlGn, Spectral</p>
+<p><strong>定性调色板</strong>，适用于名义型或分类型变量。 它们并不代表组之间的大小差异。
+Accent, Dark2, Paired, Pastel1, Pastel2, Set1, Set2, Set3</p>
+<blockquote>
+<p>作者：谢俊飞
+链接：<a href="https://www.jianshu.com/p/21971df8e2e4" class="uri">https://www.jianshu.com/p/21971df8e2e4</a>
+来源：简书`</p>
+</blockquote>
+<pre class="r"><code>library(RColorBrewer)
+display.brewer.all()
+# 通过指定名字来查看调色板</code></pre>
+<p><img src="images/RcolorBrewer-1.png" /></p>
+<pre class="r"><code>#rm(list = ls())
+#install.packages(&quot;RColorBrewer&quot;)
+library(RColorBrewer)
+# RColorBrewer绘制条形图
+barplot(c(2,5,7), col=rev(brewer.pal(n = 3, name = &quot;RdBu&quot;)))
+barplot(c(2,5,7), col=brewer.pal(n = 3, name = &quot;RdBu&quot;))###########颜色按倒序排列</code></pre>
+<p><img src="images/RcolorBrewer2-1.png" />
+<img src="images/RcolorBrewer2-2.png" /></p>
+</div>
+<div id="创建n个连续颜色的向量" class="section level2">
+<h2>创建n个连续颜色的向量</h2>
+<p>可以使用函数rainbow(n), heat.colors(n), terrain.colors(n), topo.colors(n)和cm.colors(n)生成n个连续颜色的向量</p>
+<pre class="r"><code>#Create a vector of n contiguous colors
+# Use rainbow colors
+barplot(1:5, col=rainbow(5))
+# Use heat.colors
+barplot(1:5, col=heat.colors(5))
+# Use terrain.colors
+barplot(1:5, col=terrain.colors(5))
+# Use topo.colors
+barplot(1:5, col=topo.colors(5))
+# Use cm.colors
+barplot(1:5, col=cm.colors(5))</code></pre>
+</div>
